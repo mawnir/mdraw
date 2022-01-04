@@ -198,7 +198,7 @@ export const renderScene = (
 
   context.setTransform(1, 0, 0, 1, 0, 0);
   context.save();
-  context.strokeStyle = "#efefef"; //-
+  context.strokeStyle = "#efefef"; //- by wawn
   context.scale(scale, scale);
 
   // When doing calculations based on canvas width we should used normalized one
