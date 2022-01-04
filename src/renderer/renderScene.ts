@@ -192,7 +192,7 @@ export const renderScene = (
     renderSelection = true,
     renderGrid = true,
     isExporting,
-  } = renderConfig;
+  } = renderConfig;   
 
   const context = canvas.getContext("2d")!;
 
