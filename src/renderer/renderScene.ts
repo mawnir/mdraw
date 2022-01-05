@@ -198,7 +198,7 @@ export const renderScene = (
 
   context.setTransform(1, 0, 0, 1, 0, 0);
   context.save();
-  context.strokeStyle = "#efefef"; //- by wawn2
+  context.strokeStyle = "#f2f2f2"; //- by wawn2
   context.scale(scale, scale);
 
   // When doing calculations based on canvas width we should used normalized one
@@ -373,7 +373,7 @@ export const renderScene = (
     context.save();
     context.translate(renderConfig.scrollX, renderConfig.scrollY);
     if (locallySelectedElements.length === 1) {
-      context.fillStyle = oc.white; //-
+      context.fillStyle = "#f2f2f2"; //- oc.black;
       const transformHandles = getTransformHandles(
         locallySelectedElements[0],
         renderConfig.zoom,
@@ -389,7 +389,7 @@ export const renderScene = (
       }
     } else if (locallySelectedElements.length > 1 && !appState.isRotating) {
       const dashedLinePadding = 4 / renderConfig.zoom.value;
-      context.fillStyle = oc.black; //-
+      context.fillStyle = "#f2f2f2"; //- oc.black;
       const [x1, y1, x2, y2] = getCommonBounds(locallySelectedElements);
       const initialLineDash = context.getLineDash();
       context.setLineDash([2 / renderConfig.zoom.value]);
