@@ -141,8 +141,8 @@ export const getTransformHandlesFromCoords = (
       : generateTransformHandle(
           x2 + dashedLineMargin - centeringOffset,
           y2 + dashedLineMargin - centeringOffset,
-          12,
-          2,
+          handleWidth,
+          handleHeight,
           cx,
           cy,
           angle,
@@ -156,8 +156,8 @@ export const getTransformHandlesFromCoords = (
             handleMarginY +
             centeringOffset -
             ROTATION_RESIZE_HANDLE_GAP / zoom.value,
-          2,
-          2,
+          handleWidth,
+          handleHeight,
           cx,
           cy,
           angle,
