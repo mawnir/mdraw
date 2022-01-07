@@ -78,32 +78,32 @@ export const SelectedShapeActions = ({
 
       {(hasStrokeStyle(elementType) ||
         targetElements.some((element) => hasStrokeStyle(element.type))) && (
-        <>
-          {renderAction("changeStrokeStyle")}
-          {renderAction("changeSloppiness")}
-        </>
-      )}
+          <>
+            {renderAction("changeStrokeStyle")}
+            {renderAction("changeSloppiness")}
+          </>
+        )}
 
       {(canChangeSharpness(elementType) ||
         targetElements.some((element) => canChangeSharpness(element.type))) && (
-        <>{renderAction("changeSharpness")}</>
-      )}
+          <>{renderAction("changeSharpness")}</>
+        )}
 
       {(hasText(elementType) ||
         targetElements.some((element) => hasText(element.type))) && (
-        <>
-          {renderAction("changeFontSize")}
+          <>
+            {renderAction("changeFontSize")}
 
-          {renderAction("changeFontFamily")}
+            {renderAction("changeFontFamily")}
 
-          {renderAction("changeTextAlign")}
-        </>
-      )}
+            {renderAction("changeTextAlign")}
+          </>
+        )}
 
       {(canHaveArrowheads(elementType) ||
         targetElements.some((element) => canHaveArrowheads(element.type))) && (
-        <>{renderAction("changeArrowhead")}</>
-      )}
+          <>{renderAction("changeArrowhead")}</>
+        )}
 
       {renderAction("changeOpacity")}
 

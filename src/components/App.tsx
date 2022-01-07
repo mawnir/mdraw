@@ -1367,14 +1367,14 @@ class App extends React.Component<AppProps, AppState> {
       typeof opts.position === "object"
         ? opts.position.clientX
         : opts.position === "cursor"
-        ? cursorX
-        : this.state.width / 2 + this.state.offsetLeft;
+          ? cursorX
+          : this.state.width / 2 + this.state.offsetLeft;
     const clientY =
       typeof opts.position === "object"
         ? opts.position.clientY
         : opts.position === "cursor"
-        ? cursorY
-        : this.state.height / 2 + this.state.offsetTop;
+          ? cursorY
+          : this.state.height / 2 + this.state.offsetTop;
 
     const { x, y } = viewportCoordsToSceneCoords(
       { clientX, clientY },
@@ -1631,8 +1631,8 @@ class App extends React.Component<AppProps, AppState> {
             }
             return prop === "key"
               ? // CapsLock inverts capitalization based on ShiftKey, so invert
-                // it back
-                event.shiftKey
+              // it back
+              event.shiftKey
                 ? ev.key.toUpperCase()
                 : ev.key.toLowerCase()
               : value;
@@ -2063,10 +2063,10 @@ class App extends React.Component<AppProps, AppState> {
     const elements = includeBoundTextElement
       ? this.scene.getElements()
       : this.scene
-          .getElements()
-          .filter(
-            (element) => !(isTextElement(element) && element.containerId),
-          );
+        .getElements()
+        .filter(
+          (element) => !(isTextElement(element) && element.containerId),
+        );
     return getElementsAtPosition(elements, (element) =>
       hitTest(element, this.state, x, y),
     );
@@ -2101,10 +2101,10 @@ class App extends React.Component<AppProps, AppState> {
     const container =
       shouldBind || parentCenterPosition
         ? getElementContainingPosition(
-            this.scene.getElements().filter((ele) => !isTextElement(ele)),
-            sceneX,
-            sceneY,
-          )
+          this.scene.getElements().filter((ele) => !isTextElement(ele)),
+          sceneX,
+          sceneY,
+        )
         : null;
 
     let existingTextElement = this.getTextElementAtPosition(sceneX, sceneY);
@@ -2144,32 +2144,32 @@ class App extends React.Component<AppProps, AppState> {
     const element = existingTextElement
       ? existingTextElement
       : newTextElement({
-          x: parentCenterPosition
-            ? parentCenterPosition.elementCenterX
-            : sceneX,
-          y: parentCenterPosition
-            ? parentCenterPosition.elementCenterY
-            : sceneY,
-          strokeColor: this.state.currentItemStrokeColor,
-          backgroundColor: this.state.currentItemBackgroundColor,
-          fillStyle: this.state.currentItemFillStyle,
-          strokeWidth: this.state.currentItemStrokeWidth,
-          strokeStyle: this.state.currentItemStrokeStyle,
-          roughness: this.state.currentItemRoughness,
-          opacity: this.state.currentItemOpacity,
-          strokeSharpness: this.state.currentItemStrokeSharpness,
-          text: "",
-          fontSize: this.state.currentItemFontSize,
-          fontFamily: this.state.currentItemFontFamily,
-          textAlign: parentCenterPosition
-            ? "center"
-            : this.state.currentItemTextAlign,
-          verticalAlign: parentCenterPosition
-            ? "middle"
-            : DEFAULT_VERTICAL_ALIGN,
-          containerId: container?.id ?? undefined,
-          groupIds: container?.groupIds ?? [],
-        });
+        x: parentCenterPosition
+          ? parentCenterPosition.elementCenterX
+          : sceneX,
+        y: parentCenterPosition
+          ? parentCenterPosition.elementCenterY
+          : sceneY,
+        strokeColor: this.state.currentItemStrokeColor,
+        backgroundColor: this.state.currentItemBackgroundColor,
+        fillStyle: this.state.currentItemFillStyle,
+        strokeWidth: this.state.currentItemStrokeWidth,
+        strokeStyle: this.state.currentItemStrokeStyle,
+        roughness: this.state.currentItemRoughness,
+        opacity: this.state.currentItemOpacity,
+        strokeSharpness: this.state.currentItemStrokeSharpness,
+        text: "",
+        fontSize: this.state.currentItemFontSize,
+        fontFamily: this.state.currentItemFontFamily,
+        textAlign: parentCenterPosition
+          ? "center"
+          : this.state.currentItemTextAlign,
+        verticalAlign: parentCenterPosition
+          ? "middle"
+          : DEFAULT_VERTICAL_ALIGN,
+        containerId: container?.id ?? undefined,
+        groupIds: container?.groupIds ?? [],
+      });
 
     this.setState({ editingElement: element });
 
@@ -2335,7 +2335,7 @@ class App extends React.Component<AppProps, AppState> {
       gesture.lastCenter =
         gesture.initialDistance =
         gesture.initialScale =
-          null;
+        null;
     }
 
     if (isHoldingSpace || isPanning || isDraggingScrollBar) {
@@ -3544,7 +3544,7 @@ class App extends React.Component<AppProps, AppState> {
         // box-selecting without shift when editing line, not clicking on a line
         (!this.state.editingLinearElement ||
           this.state.editingLinearElement?.elementId !==
-            pointerDownState.hit.element?.id ||
+          pointerDownState.hit.element?.id ||
           pointerDownState.hit.hasHitElementInside)
       ) {
         // Marking that click was used for dragging to check
@@ -3760,11 +3760,11 @@ class App extends React.Component<AppProps, AppState> {
                   }, {} as any),
                   ...(pointerDownState.hit.element
                     ? {
-                        // if using ctrl/cmd, select the hitElement only if we
-                        // haven't box-selected anything else
-                        [pointerDownState.hit.element.id]:
-                          !elementsWithinSelection.length,
-                      }
+                      // if using ctrl/cmd, select the hitElement only if we
+                      // haven't box-selected anything else
+                      [pointerDownState.hit.element.id]:
+                        !elementsWithinSelection.length,
+                    }
                     : null),
                 },
               },
@@ -4152,8 +4152,8 @@ class App extends React.Component<AppProps, AppState> {
         (isBindingEnabled(this.state)
           ? bindOrUnbindSelectedElements
           : unbindLinearElements)(
-          getSelectedElements(this.scene.getElements(), this.state),
-        );
+            getSelectedElements(this.scene.getElements(), this.state),
+          );
       }
 
       if (!elementLocked && elementType !== "freedraw") {
@@ -4623,8 +4623,8 @@ class App extends React.Component<AppProps, AppState> {
       // element from it
       editingGroupId:
         prevState.editingGroupId &&
-        hitElement != null &&
-        isElementInGroup(hitElement, prevState.editingGroupId)
+          hitElement != null &&
+          isElementInGroup(hitElement, prevState.editingGroupId)
           ? prevState.editingGroupId
           : null,
     }));
@@ -4954,10 +4954,10 @@ class App extends React.Component<AppProps, AppState> {
       const viewModeOptions = [
         ...options,
         typeof this.props.gridModeEnabled === "undefined" &&
-          actionToggleGridMode,
+        actionToggleGridMode,
         typeof this.props.zenModeEnabled === "undefined" && actionToggleZenMode,
         typeof this.props.viewModeEnabled === "undefined" &&
-          actionToggleViewMode,
+        actionToggleViewMode,
         actionToggleStats,
       ];
 
@@ -4974,34 +4974,34 @@ class App extends React.Component<AppProps, AppState> {
         ContextMenu.push({
           options: [
             this.isMobile &&
-              navigator.clipboard && {
-                name: "paste",
-                perform: (elements, appStates) => {
-                  this.pasteFromClipboard(null);
-                  return {
-                    commitToHistory: false,
-                  };
-                },
-                contextItemLabel: "labels.paste",
+            navigator.clipboard && {
+              name: "paste",
+              perform: (elements, appStates) => {
+                this.pasteFromClipboard(null);
+                return {
+                  commitToHistory: false,
+                };
               },
+              contextItemLabel: "labels.paste",
+            },
             this.isMobile && navigator.clipboard && separator,
             probablySupportsClipboardBlob &&
-              elements.length > 0 &&
-              actionCopyAsPng,
+            elements.length > 0 &&
+            actionCopyAsPng,
             probablySupportsClipboardWriteText &&
-              elements.length > 0 &&
-              actionCopyAsSvg,
+            elements.length > 0 &&
+            actionCopyAsSvg,
             ((probablySupportsClipboardBlob && elements.length > 0) ||
               (probablySupportsClipboardWriteText && elements.length > 0)) &&
-              separator,
+            separator,
             actionSelectAll,
             separator,
             typeof this.props.gridModeEnabled === "undefined" &&
-              actionToggleGridMode,
+            actionToggleGridMode,
             typeof this.props.zenModeEnabled === "undefined" &&
-              actionToggleZenMode,
+            actionToggleZenMode,
             typeof this.props.viewModeEnabled === "undefined" &&
-              actionToggleViewMode,
+            actionToggleViewMode,
             actionToggleStats,
           ],
           top,
@@ -5027,16 +5027,16 @@ class App extends React.Component<AppProps, AppState> {
             this.isMobile && actionCut,
             this.isMobile && navigator.clipboard && actionCopy,
             this.isMobile &&
-              navigator.clipboard && {
-                name: "paste",
-                perform: (elements, appStates) => {
-                  this.pasteFromClipboard(null);
-                  return {
-                    commitToHistory: false,
-                  };
-                },
-                contextItemLabel: "labels.paste",
+            navigator.clipboard && {
+              name: "paste",
+              perform: (elements, appStates) => {
+                this.pasteFromClipboard(null);
+                return {
+                  commitToHistory: false,
+                };
               },
+              contextItemLabel: "labels.paste",
+            },
             this.isMobile && separator,
             ...options,
             separator,
